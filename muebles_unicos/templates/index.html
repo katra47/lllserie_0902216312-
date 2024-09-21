@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Suite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/">
+            <i class="fas fa-home nav-icon"></i>
+            Catálogo
+        </a>
+        <a href="/nuevo">
+            <i class="fas fa-plus nav-icon"></i>
+            Nuevo Ingreso
+        </a>
+    </header>
+    
+    <section class="hero">
+        <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Héroe">
+        <div class="hero-text">
+            <h1>¡Tranquilo, todo estará bien!</h1>
+        </div>
+    </section>
+    
+    <div class="product-container">
+        {% for producto in productos %}
+        <div class="product-card">
+            <h2>{{ producto.nombre }}</h2>
+            <img src="{{ url_for('static', filename=producto.imagen) }}" alt="{{ producto.nombre }}" class="product-image">
+            <p>{{ producto.descripcion }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
